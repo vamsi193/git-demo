@@ -9,7 +9,7 @@ jobs:
 
     steps:
     - name: my-job
-    - run: echo "Hello"
+      run: echo "Hello"
   
 
   
