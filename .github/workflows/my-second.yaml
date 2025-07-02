@@ -8,10 +8,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: checkout
+      uses: actions/checkout@v4
+      
     - name: list_step
       run: ls -ltr
       
     - name: second_step
       run: pwd
+
+    
 
       
