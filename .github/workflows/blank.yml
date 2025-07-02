@@ -36,6 +36,7 @@ jobs:
           echo test, and deploy your project.
   build-and-deploy:
     runs-on: ubuntu-latest
+    needs: build
 
     steps:
     - name: Checkout code
