@@ -1,0 +1,17 @@
+name: second-flow
+
+on:
+  push
+
+jobs:
+  job1:
+    runs-on: ubuntu-lates
+
+    steps:
+    - name: list_step
+      run: ls -ltr
+      
+    - name: second_step
+      run: pwd
+
+      
