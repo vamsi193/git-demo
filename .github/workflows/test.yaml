@@ -2,19 +2,27 @@ name: test-workflow
 
 on:
   workflow_dispatch:
-  
+
 jobs:
-  my-first-job:
+  demo:
     runs-on: ubuntu-latest
+    env:
+      GLOBAL_VAR: "Hello from job"
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - name: Step 1 (uses GLOBAL_VAR)
+        run: echo "$GLOBAL_VAR"
 
-      - name: list files
-        run: ls -ltr
-        
-      - name: Print trigger info
-        run: echo "Triggered by ${{ github.event_name }}"
+      - name: Step 2 (overrides with local ENV_VAR)
+        env:
+          LOCAL_VAR: "Hello from step"
+        run: |
+          echo "$GLOBAL_VAR"
+          echo "$LOCAL_VAR"
+
+      - name: Step 3 (LOCAL_VAR not available here)
+        run: |
+          echo "$GLOBAL_VAR"
+          echo "$LOCAL_VAR"  # This will be empty
     
 
