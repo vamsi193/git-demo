@@ -1,12 +1,8 @@
 name: test-workflow
 
 on:
-  push:
-    branches:
-      - main
-  pull_request:
-      branches:
-        - main
+  workflow_dispatch:
+  
 jobs:
   my-first-job:
     runs-on: ubuntu-latest
@@ -17,5 +13,8 @@ jobs:
 
       - name: list files
         run: ls -ltr
+        
+      - name: Print trigger info
+        run: echo "Triggered by ${{ github.event_name }}"
     
 
